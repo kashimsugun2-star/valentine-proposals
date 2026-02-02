@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kaltum 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em;
+    margin: 0.2em 0;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.3);
+  }
+  p {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
+  }
+  button {
+    background: #ff66b3;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.3em;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 20px;
+    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.4);
+    transition: 0.3s ease-in-out;
+  }
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.6);
+  }
+  .heart {
+    color: #ff66b3;
+    animation: heartbeat 1s infinite;
+    display: inline-block;
+  }
+  @keyframes heartbeat {
+    0%, 100% {transform: scale(1);}
+    50% {transform: scale(1.4);}
+  }
+  .floating-heart {
+    position: absolute;
+    font-size: 1.2em;
+    opacity: 0.8;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0% {transform: translateY(0) scale(1); opacity: 1;}
+    100% {transform: translateY(-800px) scale(1.5); opacity: 0;}
+  }
+  iframe {
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <h1>For Kaltum 💖</h1>
+  <p>Hey Kaltum… I have something special for you 💌</p>
+  <button onclick="propose()">Open My Heart</button>
+
+  <!-- YouTube Embed for "Perfect" (official) -->
+  <iframe id="ytplayer" width="0" height="0"
+    src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g"
+    frameborder="0" allow="autoplay; encrypted-media"></iframe>
+
+  <script>
+    const colors = ['#ff66b3','#ff99cc','#ffb3d9','#f2ccff','#d1a3ff'];
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 400);
+
+    function propose() {
+      // Show YouTube frame invisibly to auto-play music
+      document.getElementById('ytplayer').style.display = 'block';
+
+      document.body.innerHTML = `
+        <h1>💖 Kaltum 💖</h1>
+        <p>I, Kashim, want to spend every Valentine with you 🥰</p>
+        <p class="heart">Will you be my Valentine? 💕</p>
+      `;
+      for(let i=0;i<50;i++) createHeart();
+    }
+  </script>
+</body>
+</html>
